@@ -1,0 +1,14 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Product Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <h3>Home Product - and Related</h3>
+      <button ion-button (click)="productTapped(product.team1Id)">{{product?.team1}}</button>
+      <button ion-button (click)="productTapped(product.team2Id)">{{product?.team2}}</button>
+</ion-content>

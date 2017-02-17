@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Harvey Nichols</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title>Buyers</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="!favorites">
+    <ion-card-header >No Recent Buys Followed</ion-card-header>
+    <ion-card-content>
+        <p>You are not having any recent buys.</p>
+          <p>First select a department, then you can follow that buy from the buy header page.</p>
+           <button ion-button full (click)="goToDepartments()">
+                <ion-icon name="search" style="padding-right: 10px"></ion-icon>
+                Find Department
+           </button>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card *ngIf="favorites">
+    <ion-list>
+    <ion-list-header>Followed Buys</ion-list-header>
+      <button ion-item *ngFor="let item of favorites" (click)="favoriteTapped($event, item)">
+        <ion-icon name="star"></ion-icon>
+          {{item.header.name}}
+          <p>{{item.departmentName}}</p>
+      </button>
+  </ion-list>
+    <ion-card-content>
+      <p>To Add more buys, select a department, 
+          then you can see buy headers, and then you select to follow that buy.</p>
+        <button ion-button full (click)="goToDepartments()">
+          <ion-icon name="search" style="padding-right: 10px"></ion-icon>
+          Find Department
+        </button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

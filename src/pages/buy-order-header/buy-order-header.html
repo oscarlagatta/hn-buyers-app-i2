@@ -1,0 +1,40 @@
+<!--
+  Generated template for the BuyOrderHeader page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Buy Header List</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="search"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateHeaders()">
+
+    </ion-searchbar>
+  
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-group *ngFor="let status of headers">
+      <ion-item-divider color="secondary">
+            {{status.statusName}}
+      </ion-item-divider>
+        <button ion-item *ngFor="let header of status.statusHeaders" (click)="itemTapped($event, header)">
+                    {{header.name}} 
+                    <p>buyer: {{header.buyer}}</p>
+                    <p>status: {{header.status}}</p>
+        </button>
+    </ion-item-group>
+  </ion-list>
+     
+      
+</ion-content>

@@ -1,0 +1,74 @@
+
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+ 
+
+<ion-content>
+    <ion-refresher (ionRefresh)="refreshAll($event)">
+        <ion-refresher-content>
+            
+        </ion-refresher-content>
+    </ion-refresher>
+  <ion-card>
+    <ion-card-content>
+        
+        <ion-row>
+          <!--<ion-col>
+             <h2>Record: {{teamStanding?.wins}}-{{teamStanding?.losses}}</h2>
+              <p>Buyer: {{header?.buyer}}</p>
+          </ion-col>
+          <ion-col>
+              
+        </ion-col>-->
+
+        <ion-col width-50>
+                    <h2>Record: {{teamStanding?.wins}}-{{teamStanding?.losses}}</h2>
+                    <p>Buyer: {{header?.buyer}}</p>
+                </ion-col>
+                <ion-col width-50 text-right>
+                    <button ion-button outline (click)="toggleFollow()" *ngIf="!isFollowing">
+                        <ion-icon name="star" style="padding-right: 20px"></ion-icon>
+                        Follow Buy
+                    </button>
+                    <button ion-button (click)="toggleFollow()" *ngIf="isFollowing">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-col>
+        </ion-row>
+        <ion-item>
+            <ion-label>Date Filter:</ion-label>
+            <ion-toggle [(ngModel)]="useDateFilter" (ionChange)="dateChanged()"></ion-toggle>
+            <ion-datetime displayFormat="D/M/YYYY" pickerFormat="D/M/YYYY" [(ngModel)]="dateFilter" (ionChange)="dateChanged()" [(disabled)]="!useDateFilter"></ion-datetime>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+    
+
+   <ion-grid>
+      <ion-list>
+              <ion-item *ngFor="let product of products" (click)="productClicked($event, game)">
+                  <ion-row>
+                      <ion-col width-20>
+                          <p>{{product.time | date:'d/MM/yyyy'}}</p>
+                          <p>{{product.time | date:'shortTime'}}</p>
+                      </ion-col>
+                      <ion-col width-60>
+                          <p>{{product.homeAway}} {{product.opponent}}</p>
+                          <p>{{product.location}}</p>
+                      </ion-col>
+                      <ion-col width-20>
+                          <h4>{{product.scoreDisplay}}</h4>
+                           <!--[class]="getScoreDisplayBadgeClass(product)"-->
+                          <ion-badge color="getScoreDisplayBadgeClass(product)">{{getScoreWorL(product)}}</ion-badge>
+                      </ion-col>
+                  </ion-row>
+              </ion-item>
+        </ion-list>
+   </ion-grid>
+   
+</ion-content>

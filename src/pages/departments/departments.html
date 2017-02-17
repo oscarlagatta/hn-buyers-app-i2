@@ -1,0 +1,23 @@
+<!--
+  Generated template for the Departments page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Select a Department</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let department of departments" (click)="itemTapped($event, department)">
+            {{department.name}}
+        </button>
+       
+    </ion-list>
+</ion-content>

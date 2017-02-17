@@ -1,0 +1,20 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{header.name}}</ion-title>
+    <ion-buttons end> 
+        <button ion-button (click)="goHome()">
+            <ion-icon name="home"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-tabs>
+  <ion-tab tabTitle="Product Detail" [root]="buyOrderDetailTab" [rootParams]="header" tabIcon="list-box"></ion-tab>
+  <ion-tab tabTitle="Prices" [root]="priceTab" [rootParams]="header" tabIcon="options"></ion-tab>
+  
+</ion-tabs>
